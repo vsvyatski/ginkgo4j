@@ -1,19 +1,18 @@
 package impl.com.github.paulcwarren.ginkgo4j.chains;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
-
 import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
-
 import impl.com.github.paulcwarren.ginkgo4j.IdBuilder;
 import impl.com.github.paulcwarren.ginkgo4j.Spec;
 import impl.com.github.paulcwarren.ginkgo4j.builder.TestVisitor;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 public class SpecsCollector implements TestVisitor {
 	
-	private Stack<String> context = new Stack<>();
-	private List<Spec> specs = new ArrayList<>();
+	private final Stack<String> context = new Stack<>();
+	private final List<Spec> specs = new ArrayList<>();
 
 	public List<Spec> getSpecs() {
 		return specs;
@@ -41,20 +40,20 @@ public class SpecsCollector implements TestVisitor {
 		}
 	}
 	
-	public void beforeEach(ExecutableBlock block) throws Throwable {
+	public void beforeEach(ExecutableBlock block) {
 	}
 
-	public void justBeforeEach(ExecutableBlock block) throws Throwable {
+	public void justBeforeEach(ExecutableBlock block) {
 	}
 
 	public void it(String text, ExecutableBlock block, boolean isFocused) {
-		String fqid = IdBuilder.fqid(text, context);
+		String fqId = IdBuilder.fqId(text, context);
 		
-		Spec spec = new Spec(fqid, block, isFocused);
+		Spec spec = new Spec(fqId, block, isFocused);
 		specs.add(spec);
 	}
 	
-	public void afterEach(ExecutableBlock block) throws Throwable {
+	public void afterEach(ExecutableBlock block) {
 	}
 
 	@Override

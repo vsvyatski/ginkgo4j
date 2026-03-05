@@ -25,7 +25,7 @@ public class Ginkgo4jSpringApplicationTests {
 	HelloService helloService;
 	
 	{
-		Describe("Spring intergation", () -> {
+		Describe("Spring integration", () -> {
 			It("should be able to use spring beans", () -> {
 				assertThat(helloService, is(not(nullValue())));
 			});

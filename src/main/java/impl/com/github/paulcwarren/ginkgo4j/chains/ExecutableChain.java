@@ -9,11 +9,11 @@ import impl.com.github.paulcwarren.ginkgo4j.Context;
 
 public class ExecutableChain {
 	
-	private String id;
+	private final String id;
 	private Object testObject;
 	private boolean isFocused;
 
-	private List<Context> context = new ArrayList<>();
+	private final List<Context> context = new ArrayList<>();
 	
 	public ExecutableChain(String id) {
 		this.id = id;
@@ -75,7 +75,7 @@ public class ExecutableChain {
 				}
 				throw t;
 			}
-		};
+		}
 		
 		for (Context c : context) {
 			try {
@@ -96,7 +96,7 @@ public class ExecutableChain {
 				}
 				throw t;
 			}
-		};
+		}
 		
 		try {
 			this.getSpec().invoke();

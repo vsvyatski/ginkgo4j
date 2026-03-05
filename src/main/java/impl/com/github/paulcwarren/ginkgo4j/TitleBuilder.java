@@ -7,7 +7,7 @@ public class TitleBuilder {
 	private TitleBuilder() {}
 	
 	public static String title(String title) {
-		if (title == null || title.trim().length() == 0) {
+		if (title == null || title.trim().isEmpty()) {
 			return EMPTY_TEXT; 
 		}
 		return title;

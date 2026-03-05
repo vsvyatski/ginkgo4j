@@ -4,38 +4,38 @@ import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
 
 public class Spec {
 
-	private String id;
-	
-	private boolean isFocused;
-	
-	private String description;
-	private ExecutableBlock block;
-	
-	public Spec(String description, ExecutableBlock block, boolean isFocused) {
-		this.id = description;
-		this.description = description;
-		this.block = block;
-		this.isFocused = isFocused;
-	}
-	
-	public String getId() {
-		return id;
-	}
+    private final String id;
 
-	public String getDescription() {
-		return description;
-	}
+    private final boolean focused;
 
-	public boolean isFocused() {
-		return isFocused;
-	}
-	
-	public ExecutableBlock getExecutableBlock() {
-		return block;
-	}
+    private final String description;
+    private final ExecutableBlock block;
 
-	@Override
-	public String toString() {
-		return "Spec [" + id + "]";
-	}
+    public Spec(String description, ExecutableBlock block, boolean focused) {
+        this.id = description;
+        this.description = description;
+        this.block = block;
+        this.focused = focused;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isFocused() {
+        return focused;
+    }
+
+    public ExecutableBlock getExecutableBlock() {
+        return block;
+    }
+
+    @Override
+    public String toString() {
+        return "Spec [" + id + "]";
+    }
 }

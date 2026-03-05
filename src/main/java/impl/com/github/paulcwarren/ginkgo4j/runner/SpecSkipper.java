@@ -4,8 +4,8 @@ import impl.com.github.paulcwarren.ginkgo4j.chains.ExecutableChain;
 
 public class SpecSkipper implements Runner {
 
-	private ExecutableChain chain;
-	private RunnerListener listener;
+	private final ExecutableChain chain;
+	private final RunnerListener listener;
 	
 	public SpecSkipper(ExecutableChain chain) {
 		this.chain = chain;

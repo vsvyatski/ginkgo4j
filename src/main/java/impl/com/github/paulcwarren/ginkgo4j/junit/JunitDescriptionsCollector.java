@@ -1,7 +1,5 @@
 package impl.com.github.paulcwarren.ginkgo4j.junit;
 
-import java.io.Serializable;
-import java.lang.annotation.Annotation;
 import java.util.EmptyStackException;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,10 +15,10 @@ import impl.com.github.paulcwarren.ginkgo4j.builder.TestVisitor;
 
 public class JunitDescriptionsCollector implements TestVisitor {
 
-	private Map<String, Description> descriptions = new HashMap<>();
-	private Stack<Description> descContext = new Stack<>();
-	private Stack<String> idContext = new Stack<>();
-	private Description description;
+	private final Map<String, Description> descriptions = new HashMap<>();
+	private final Stack<Description> descContext = new Stack<>();
+	private final Stack<String> idContext = new Stack<>();
+	private final Description description;
 	private final Class<?> clazz;
 
 	public JunitDescriptionsCollector(Class<?> clazz, Description description) {
@@ -38,7 +36,7 @@ public class JunitDescriptionsCollector implements TestVisitor {
 		idContext.push(id);
 		try {
 			block.invoke();
-		} catch (Throwable e) {}
+		} catch (Throwable ignored) {}
 		finally {
 			idContext.pop();
 		}
@@ -50,7 +48,7 @@ public class JunitDescriptionsCollector implements TestVisitor {
 		idContext.push(id);
 		try {
 			block.invoke();
-		} catch (Throwable e) {}
+		} catch (Throwable ignored) {}
 		finally {
 			idContext.pop();
 		}
@@ -64,7 +62,7 @@ public class JunitDescriptionsCollector implements TestVisitor {
 
 	public void it(String text, ExecutableBlock block, boolean isFocused) {
 		text = TitleBuilder.title(text);
-		String id = IdBuilder.fqid(text, idContext);
+		String id = IdBuilder.fqId(text, idContext);
 		Description itDesc = Description.createTestDescription(this.clazz.getName(), id, id);
 		description.addChild(itDesc);
 		descriptions.put(id, itDesc);
@@ -76,7 +74,7 @@ public class JunitDescriptionsCollector implements TestVisitor {
 	private void safePeek(Description childDesc) {
 		try {
 			descContext.peek().addChild(childDesc);
-		} catch (EmptyStackException ese) {}
+		} catch (EmptyStackException ignored) {}
 	}
 
 	@Override

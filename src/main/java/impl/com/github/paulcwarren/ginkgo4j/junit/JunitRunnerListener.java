@@ -11,8 +11,8 @@ import impl.com.github.paulcwarren.ginkgo4j.runner.RunnerListener;
 
 public class JunitRunnerListener implements RunnerListener {
 
-	private RunNotifier notifier;
-	private Map<String,Description> descriptions;
+	private final RunNotifier notifier;
+	private final Map<String,Description> descriptions;
 	
 	public JunitRunnerListener(RunNotifier notifier, Map<String, Description> descriptions) {
 		super();

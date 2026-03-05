@@ -11,5 +11,4 @@ public interface TestVisitor {
 	void justBeforeEach(ExecutableBlock block) throws Throwable;
 	void it(String text, ExecutableBlock block, boolean isFocused) throws Throwable;
 	void afterEach(ExecutableBlock block) throws Throwable;
-	
 }

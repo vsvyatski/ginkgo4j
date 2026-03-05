@@ -12,7 +12,7 @@ public class FileWatcher {
 		
 		while (true) {
 			tests.forEach((f) -> {
-				if (timestamps.containsKey(f) == false) {
+				if (!timestamps.containsKey(f)) {
 					timestamps.put(f, f.lastModified());
 				}
 				
@@ -25,7 +25,7 @@ public class FileWatcher {
 			});
 			try {
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {}
+			} catch (InterruptedException ignored) {}
 		}
 	}
 }

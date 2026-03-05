@@ -17,28 +17,28 @@ Feature List:-
   - Test your Spring applications  
 
 ## Requires
-- Java 8
+- At least Java 17
 
 ## Getting Started
 - Add the ginkgo4j to your project as a test dependency.  For a maven project add:
 
-```
+```xml
 <dependency>
-    <groupId>com.github.paulcwarren</groupId>
+    <groupId>io.github.vsvyastki</groupId>
     <artifactId>ginkgo4j</artifactId>
-    <version>1.0.14</version>
+    <version>2.0.0</version>
     <scope>test</scope>
 </dependency>
 ```
 or for a Gradle project add:
-```
-compile 'com.github.paulcwarren:ginkgo4j:1.0.14'
+```groovy
+compile 'io.github.vsvyastki:ginkgo4j:2.0.0'
 ```
 
-or for a Gradle 7 project add:
-```
+or for a Gradle 7+ project add:
+```groovy
 dependencies {
-    testImplementation 'com.github.paulcwarren:ginkgo4j:1.0.14'
+    testImplementation 'io.github.vsvyastki:ginkgo4j:2.0.0'
 }
 ```
 
@@ -55,17 +55,17 @@ import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
   - Annotate your test class with:-
 ```java
 @RunWith(Ginkgo4jRunner.class)
+public class MyTests {}
 ```
   - And the following template:
 ```java
-	{
-		Describe("Replace me", () -> {
-			It("Replace me too", () -> {
-				fail("Not yet implemented");
-			});
-		});
-	}
-``` 
+public class MyTests {
+    {
+        Describe("Replace me", () ->
+                It("Replace me too", () -> fail("Not yet implemented")));
+    }
+}
+```
    - Optionally, you can control the number of threads used with `@Ginkgo4jConfiguration(threads = 1)`
 
 ### Getting Started with Spring
@@ -78,24 +78,25 @@ import com.github.paulcwarren.ginkgo4j.Ginkgo4jSpringRunner;
    - Annotate your test class with:-
 ```java
 @RunWith(Ginkgo4jSpringRunner.class)
+public class MyTests {}
 ```
    - Add the following template:
 ```java
-	{
-		Describe("Replace me", () -> {
-			It("Replace me too", () -> {
-				fail("Not yet implemented");
-			});
-		});
-	}
-	@Test
-	public void noop() {
-	}
+public class MyTests {
+    {
+        Describe("Replace me", () ->
+                It("Replace me too", () -> fail("Not yet implemented")));
+    }
+
+    @Test
+    public void noop() {
+    }
+}
 ```
 
 ## Screenshots
 ### Eclipse
 ![Eclipse](readme/eclipse-junit.png)
 
-### Intellij
+### IntelliJ
 ![Intellij](readme/intellij-junit.png)

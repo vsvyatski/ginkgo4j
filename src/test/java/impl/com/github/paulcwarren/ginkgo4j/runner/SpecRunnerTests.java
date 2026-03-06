@@ -100,7 +100,7 @@ public class SpecRunnerTests {
                     setupOneBeforeOneAfterSpec();
                     justBefore = mock(ExecutableBlock.class);
                     chain.getContext().add(new Context(""));
-                    chain.getContext().getFirst().setJustBeforeEach(justBefore);
+                    chain.getContext().get(0).setJustBeforeEach(justBefore);
 
                     doThrow(Exception.class).when(justBefore).invoke();
                 });
@@ -124,7 +124,7 @@ public class SpecRunnerTests {
                     setupOneBeforeOneAfterSpec();
                     justBefore = mock(ExecutableBlock.class);
                     chain.getContext().add(new Context(""));
-                    chain.getContext().getFirst().setJustBeforeEach(justBefore);
+                    chain.getContext().get(0).setJustBeforeEach(justBefore);
 
                     doThrow(Throwable.class).when(justBefore).invoke();
                 });
@@ -226,7 +226,7 @@ public class SpecRunnerTests {
                     this.setupOneBeforeOneAfterSpec();
                     justBefore = mock(ExecutableBlock.class);
                     chain.getContext().add(new Context(""));
-                    chain.getContext().getFirst().setJustBeforeEach(justBefore);
+                    chain.getContext().get(0).setJustBeforeEach(justBefore);
                 });
 
                 It("should run after all BeforeEach's", () -> {
@@ -274,12 +274,12 @@ public class SpecRunnerTests {
         chain.getContext().add(new Context(""));
 
         before = mock(ExecutableBlock.class);
-        chain.getContext().getFirst().addBeforeEach(before);
+        chain.getContext().get(0).addBeforeEach(before);
 
         it = mock(ExecutableBlock.class);
         chain.setSpec(it);
 
         after = mock(ExecutableBlock.class);
-        chain.getContext().getFirst().setAfterEach(after);
+        chain.getContext().get(0).setAfterEach(after);
     }
 }

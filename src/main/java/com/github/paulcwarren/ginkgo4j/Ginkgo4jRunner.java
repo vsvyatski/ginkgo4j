@@ -13,7 +13,6 @@ import impl.com.github.paulcwarren.ginkgo4j.runner.SpecSkipper;
 import org.junit.runner.Description;
 import org.junit.runner.Runner;
 import org.junit.runner.notification.RunNotifier;
-import org.junit.runners.model.InitializationError;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Ginkgo4jRunner extends Runner {
 
@@ -28,7 +28,7 @@ public class Ginkgo4jRunner extends Runner {
     private Map<String, Description> descriptions = new HashMap<>();
     private Description description;
 
-    public Ginkgo4jRunner(Class<?> testClass) throws InitializationError {
+    public Ginkgo4jRunner(Class<?> testClass) {
         this.testClass = testClass;
     }
 
@@ -92,16 +92,25 @@ public class Ginkgo4jRunner extends Runner {
     }
 
     static void threadExecute(List<Runnable> workers, int threads) {
-        try (ExecutorService executor = Executors.newFixedThreadPool(threads)) {
+        ExecutorService executor = null;
+        try {
+            // Turned off warning about AutoCloseable for Java 17 compatibility.
+            //noinspection resource
+            executor = Executors.newFixedThreadPool(threads);
             for (Runnable runner : workers) {
                 executor.execute(runner);
             }
-            executor.shutdown();
-            while (!executor.isTerminated()) {
-                Thread.sleep(100);
+        } finally {
+            if (executor != null) {
+                executor.shutdown();
+                try {
+                    if (!executor.awaitTermination(30, TimeUnit.SECONDS))
+                        executor.shutdownNow();
+                } catch (InterruptedException e) {
+                    executor.shutdownNow();
+                    Thread.currentThread().interrupt();
+                }
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

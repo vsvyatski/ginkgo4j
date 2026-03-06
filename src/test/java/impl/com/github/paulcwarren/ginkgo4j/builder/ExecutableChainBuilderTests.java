@@ -44,12 +44,12 @@ public class ExecutableChainBuilderTests {
 
                 It("should capture the test structure", () -> {
                     assertThat(builder.getExecutableChain().getContext().size(), is(1));
-                    assertThat(builder.getExecutableChain().getContext().getFirst().getBeforeEach(),
+                    assertThat(builder.getExecutableChain().getContext().get(0).getBeforeEach(),
                             is(not(nullValue())));
-                    assertThat(builder.getExecutableChain().getContext().getFirst().getJustBeforeEach(),
+                    assertThat(builder.getExecutableChain().getContext().get(0).getJustBeforeEach(),
                             is(not(nullValue())));
                     assertThat(builder.getExecutableChain().getSpec(), is(not(nullValue())));
-                    assertThat(builder.getExecutableChain().getContext().getFirst().getAfterEach(),
+                    assertThat(builder.getExecutableChain().getContext().get(0).getAfterEach(),
                             is(not(nullValue())));
                 });
             });

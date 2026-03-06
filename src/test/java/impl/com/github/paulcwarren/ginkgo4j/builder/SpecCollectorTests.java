@@ -56,7 +56,7 @@ public class SpecCollectorTests {
                 It("should collect specs with parsed IDs", () -> {
                     assertThat(collector.getSpecs(), is(not(nullValue())));
                     assertThat(collector.getSpecs().size(), is(1));
-                    assertThat(collector.getSpecs().getFirst().getId(), is("_EMPTY_._EMPTY_._EMPTY_"));
+                    assertThat(collector.getSpecs().get(0).getId(), is("_EMPTY_._EMPTY_._EMPTY_"));
                 });
             });
 

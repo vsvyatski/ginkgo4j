@@ -33,7 +33,7 @@ public class TestScannerTests {
                             new File(testDir, "HisClassTest.java").createNewFile();
                         });
                         It("should return 2 tests", () -> {
-                            List<File> tests = TestScanner.scan(testDir, false);
+                            List<File> tests = TestScanner.scan(testDir);
                             assertThat(tests, is(not(nullValue())));
                             assertThat(tests.size(), is(2));
                         });
@@ -44,7 +44,7 @@ public class TestScannerTests {
                             new File(testDir, "HisClassTests.java").createNewFile();
                         });
                         It("should return 2 tests", () -> {
-                            List<File> tests = TestScanner.scan(testDir, false);
+                            List<File> tests = TestScanner.scan(testDir);
                             assertThat(tests, is(not(nullValue())));
                             assertThat(tests.size(), is(2));
                         });
@@ -52,7 +52,7 @@ public class TestScannerTests {
                     Context("when the directory contains non-test files", () -> {
                         BeforeEach(() -> new File(testDir, "MyClass.java").createNewFile());
                         It("should return an empty list", () -> {
-                            List<File> tests = TestScanner.scan(testDir, false);
+                            List<File> tests = TestScanner.scan(testDir);
                             assertThat(tests, is(not(nullValue())));
                             assertThat(tests.size(), is(0));
                         });
@@ -60,7 +60,7 @@ public class TestScannerTests {
                     Context("when the directory contains a directory", () -> {
                         BeforeEach(() -> new File(testDir, "MyDirectoryTest.java").mkdirs());
                         It("should return an empty list", () -> {
-                            List<File> tests = TestScanner.scan(testDir, false);
+                            List<File> tests = TestScanner.scan(testDir);
                             assertThat(tests, is(not(nullValue())));
                             assertThat(tests.size(), is(0));
                         });

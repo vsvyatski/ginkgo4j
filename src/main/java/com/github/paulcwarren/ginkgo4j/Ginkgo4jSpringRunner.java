@@ -9,6 +9,7 @@ import org.junit.runner.Description;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.Statement;
+import org.springframework.lang.NonNull;
 import org.springframework.test.context.TestContextManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -28,6 +29,7 @@ public class Ginkgo4jSpringRunner extends SpringJUnit4ClassRunner {
     }
 
     @Override
+    @NonNull
     public Description getDescription() {
         if (description == null) {
             description = Description.createSuiteDescription(testClass.getName());

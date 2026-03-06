@@ -3,6 +3,8 @@ package impl.com.github.paulcwarren.ginkgo4j.builder;
 import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
 import com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class TestWalker implements TestVisitor {
 
     private final Class<?> testClass;
@@ -16,8 +18,9 @@ public class TestWalker implements TestVisitor {
         try {
             Ginkgo4jDSL.setVisitor(this);
             try {
-                testClass.newInstance();
-            } catch (InstantiationException | IllegalAccessException e) {
+                testClass.getDeclaredConstructor().newInstance();
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
+                     NoSuchMethodException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -31,9 +34,10 @@ public class TestWalker implements TestVisitor {
         try {
             Ginkgo4jDSL.setVisitor(this);
             try {
-                Object test = testClass.newInstance();
+                Object test = testClass.getDeclaredConstructor().newInstance();
                 test(test);
-            } catch (InstantiationException | IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
+                     NoSuchMethodException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }

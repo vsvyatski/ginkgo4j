@@ -1,8 +1,8 @@
 package com.github.paulcwarren.ginkgo4j;
 
-import java.util.Stack;
-
 import impl.com.github.paulcwarren.ginkgo4j.builder.TestVisitor;
+
+import java.util.Stack;
 
 public class Ginkgo4jDSL {
 
@@ -25,8 +25,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().describe(text, block, false);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -39,8 +39,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().describe(text, block, true);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -53,8 +53,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().context(text, block, false);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -67,8 +67,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().context(text, block, true);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -81,8 +81,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().beforeEach(block);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -95,8 +95,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().justBeforeEach(block);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }
@@ -109,8 +109,10 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().it(text, block, false);
             } catch (Throwable e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                if (e instanceof RuntimeException re) {
+                    throw re;
+                }
+                throw new RuntimeException("Unable to execute test", e);
             }
         }
     }
@@ -121,8 +123,10 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().it(text, block, true);
             } catch (Throwable e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                if (e instanceof RuntimeException re) {
+                    throw re;
+                }
+                throw new RuntimeException("Unable to execute test", e);
             }
         }
     }
@@ -133,8 +137,8 @@ public class Ginkgo4jDSL {
             try {
                 stack.peek().afterEach(block);
             } catch (Throwable e) {
-                if (e instanceof RuntimeException) {
-                    throw (RuntimeException) e;
+                if (e instanceof RuntimeException re) {
+                    throw re;
                 }
                 throw new RuntimeException("Unable to execute test", e);
             }

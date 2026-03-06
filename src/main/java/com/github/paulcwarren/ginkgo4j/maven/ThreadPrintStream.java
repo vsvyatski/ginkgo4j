@@ -1,5 +1,7 @@
 package com.github.paulcwarren.ginkgo4j.maven;
 
+import org.springframework.lang.NonNull;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -58,7 +60,7 @@ public class ThreadPrintStream extends PrintStream {
     }
 
     @Override
-    public void write(byte[] buf, int off, int len) {
+    public void write(@NonNull byte[] buf, int off, int len) {
         getThreadOut().write(buf, off, len);
     }
 

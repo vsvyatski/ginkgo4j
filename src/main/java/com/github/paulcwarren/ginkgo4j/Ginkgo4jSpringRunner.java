@@ -5,11 +5,11 @@ import impl.com.github.paulcwarren.ginkgo4j.chains.ExecutableChain;
 import impl.com.github.paulcwarren.ginkgo4j.junit.JunitDescriptionsCollector;
 import impl.com.github.paulcwarren.ginkgo4j.junit.JunitRunnerListener;
 import impl.com.github.paulcwarren.ginkgo4j.runner.RunnerListener;
+import org.jspecify.annotations.NonNull;
 import org.junit.runner.Description;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.model.InitializationError;
 import org.junit.runners.model.Statement;
-import org.springframework.lang.NonNull;
 import org.springframework.test.context.TestContextManager;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 

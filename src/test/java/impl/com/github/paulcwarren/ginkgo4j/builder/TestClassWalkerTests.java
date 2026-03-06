@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InOrder;
 
 import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.*;
-import static org.mockito.Matchers.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @RunWith(Ginkgo4jRunner.class)
@@ -27,13 +27,13 @@ public class TestClassWalkerTests {
 
             It("should visit all nodes in the tree", () -> {
                 InOrder order = inOrder(visitorSpy);
-                order.verify(visitorSpy).describe(anyString(), anyObject(), eq(false));
-                order.verify(visitorSpy).justBeforeEach(anyObject());
-                order.verify(visitorSpy).context(anyString(), anyObject(), eq(false));
-                order.verify(visitorSpy).beforeEach(anyObject());
-                order.verify(visitorSpy).it(anyString(), anyObject(), eq(false));
-                order.verify(visitorSpy).afterEach(anyObject());
-                order.verify(visitorSpy).test(anyObject());
+                order.verify(visitorSpy).describe(anyString(), any(), eq(false));
+                order.verify(visitorSpy).justBeforeEach(any());
+                order.verify(visitorSpy).context(anyString(), any(), eq(false));
+                order.verify(visitorSpy).beforeEach(any());
+                order.verify(visitorSpy).it(anyString(), any(), eq(false));
+                order.verify(visitorSpy).afterEach(any());
+                order.verify(visitorSpy).test(any());
                 verifyNoMoreInteractions(visitorSpy);
             });
         }));

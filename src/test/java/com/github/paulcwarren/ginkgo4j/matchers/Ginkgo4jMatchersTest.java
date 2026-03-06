@@ -1,58 +1,36 @@
 package com.github.paulcwarren.ginkgo4j.matchers;
 
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.Context;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.Describe;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.It;
-import static com.github.paulcwarren.ginkgo4j.matchers.Ginkgo4jMatchers.eventually;
-import static org.hamcrest.CoreMatchers.instanceOf;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
+import org.junit.Assert;
+import org.junit.runner.RunWith;
 
 import java.time.Duration;
 
-import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
-
-import org.junit.runner.RunWith;
+import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.*;
+import static com.github.paulcwarren.ginkgo4j.matchers.Ginkgo4jMatchers.eventually;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 @RunWith(Ginkgo4jRunner.class)
 public class Ginkgo4jMatchersTest {
-    
+
     {
         Describe("#eventually", () -> {
 
-            Context("when the subject returns a passing result", () -> {
-
-                It("should be successful", () -> {
+            Context("when the subject returns a passing result", () ->
+                    It("should be successful", () -> eventually(() -> true, Assert::assertTrue))
+            );
+            Context("when the duration expires", () -> It("should throw an AssertionError", () -> {
+                try {
                     eventually(
-                        () -> {
-                            return true;
-                        },
-                        (result) -> {
-                            assertThat(result, is(true));
-                        }
-                    );
-                });
-            });
-            Context("when the duration expires", () -> {
-
-                It("should throw an AssertionError", () ->{
-
-                    try {
-                        eventually(
-                            () -> {
-                                return null;
-                            },
-                            (result) -> {
-                                fail("shouldn't call this");
-                            },
+                            () -> null,
+                            (result) -> fail("shouldn't call this"),
                             Duration.ofMillis(100), Duration.ofSeconds(1));
-                            fail("shouldn't call this");
-                    } catch (Throwable e) {
-                        assertThat(e, is(instanceOf(AssertionError.class)));
-                    }
-                });
-            });
+                    fail("shouldn't call this");
+                } catch (Throwable e) {
+                    assertTrue(e instanceof AssertionError);
+                }
+            }));
         });
     }
 }

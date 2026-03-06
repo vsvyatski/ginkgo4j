@@ -1,26 +1,17 @@
 package impl.com.github.paulcwarren.ginkgo4j.runner;
 
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.BeforeEach;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.Context;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.Describe;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.It;
-import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.JustBeforeEach;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyNoMoreInteractions;
-
-import org.junit.runner.RunWith;
-import org.mockito.InOrder;
-
 import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
 import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
-
 import impl.com.github.paulcwarren.ginkgo4j.Context;
 import impl.com.github.paulcwarren.ginkgo4j.Describe;
 import impl.com.github.paulcwarren.ginkgo4j.chains.ExecutableChain;
+import org.junit.runner.RunWith;
+import org.mockito.InOrder;
+
+import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.*;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isA;
+import static org.mockito.Mockito.*;
 
 @RunWith(Ginkgo4jRunner.class)
 public class SpecRunnerTests {

@@ -9,11 +9,10 @@ import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.FDescribe;
 import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.FIt;
 import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.It;
 import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.JustBeforeEach;
-import static com.github.paulcwarren.ginkgo4j.matchers.Ginkgo4jMatchers.eventually;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -59,8 +58,8 @@ public class Ginkgo4jRunnerTests {
 				});
 				It("should execute successfully", () -> {
 					assertThat(t, is(nullValue()));
-					verify(notifier, times(3)).fireTestStarted(anyObject());
-					verify(notifier, times(3)).fireTestFinished(anyObject());
+					verify(notifier, times(3)).fireTestStarted(any());
+					verify(notifier, times(3)).fireTestFinished(any());
 				});
 			});
 			Context("when a test that throws an NPE", () -> {
@@ -100,13 +99,13 @@ public class Ginkgo4jRunnerTests {
 						runner = new Ginkgo4jRunner(NPEThrowingTestClass.class);
 					});
 					It("should report failure to junit's notifier", () -> {
-						verify(notifier, times(1)).fireTestStarted(anyObject());
+						verify(notifier, times(1)).fireTestStarted(any());
 						
 						ArgumentCaptor<Failure> failureCaptor = ArgumentCaptor.forClass(Failure.class);
 						verify(notifier, times(1)).fireTestFailure(failureCaptor.capture());
 						assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(20));
 						
-						verify(notifier, times(1)).fireTestFinished(anyObject());
+						verify(notifier, times(1)).fireTestFinished(any());
 					});
 				});
 				Context("from a JustBeforeEach block", () -> {
@@ -119,13 +118,13 @@ public class Ginkgo4jRunnerTests {
 						runner = new Ginkgo4jRunner(NPEThrowingTestClass.class);
 					});
 					It("should report failure to junit's notifier", () -> {
-						verify(notifier, times(1)).fireTestStarted(anyObject());
+						verify(notifier, times(1)).fireTestStarted(any());
 						
 						ArgumentCaptor<Failure> failureCaptor = ArgumentCaptor.forClass(Failure.class);
 						verify(notifier, times(1)).fireTestFailure(failureCaptor.capture());
 						assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(23));
 						
-						verify(notifier, times(1)).fireTestFinished(anyObject());
+						verify(notifier, times(1)).fireTestFinished(any());
 					});
 				});
 //				Context("from a Context block", () -> {
@@ -157,13 +156,13 @@ public class Ginkgo4jRunnerTests {
 						runner = new Ginkgo4jRunner(NPEThrowingTestClass.class);
 					});
 					It("should report failure to junit's notifier", () -> {
-						verify(notifier, times(1)).fireTestStarted(anyObject());
+						verify(notifier, times(1)).fireTestStarted(any());
 						
 						ArgumentCaptor<Failure> failureCaptor = ArgumentCaptor.forClass(Failure.class);
 						verify(notifier, times(1)).fireTestFailure(failureCaptor.capture());
 						assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(30));
 						
-						verify(notifier, times(1)).fireTestFinished(anyObject());
+						verify(notifier, times(1)).fireTestFinished(any());
 					});
 				});
 			});

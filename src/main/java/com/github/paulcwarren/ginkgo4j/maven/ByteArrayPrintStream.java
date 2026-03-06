@@ -5,7 +5,7 @@ import java.io.PrintStream;
 
 public class ByteArrayPrintStream extends PrintStream {
 
-    private ByteArrayOutputStream out;
+    private final ByteArrayOutputStream out;
 
     public ByteArrayPrintStream(ByteArrayOutputStream out) {
         super(out);

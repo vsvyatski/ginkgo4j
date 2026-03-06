@@ -21,73 +21,65 @@ import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
 @RunWith(Ginkgo4jRunner.class)
 public class TestScannerTests {
 
-	File testdir;
-	{
-		Describe("TestScanner", () -> {
-			Context("#scan", () -> {
-				BeforeEach(() -> {
-					testdir = mktestdir();
-				});
-				AfterEach(() -> {
-					FileUtils.deleteDirectory(testdir);
-				});
-				Context("when the directory contains *Test.java tests", () -> {
-					BeforeEach(() -> {
-						new File(testdir, "MyClassTest.java").createNewFile();
-						new File(testdir, "HisClassTest.java").createNewFile();
-					});
-					It("should return 2 tests", () -> {
-						List<File> tests = TestScanner.scan(testdir, false);
-						assertThat(tests, is(not(nullValue())));
-						assertThat(tests.size(), is(2));
-					});
-				});
-				Context("when the directory contains *Tests.java tests", () -> {
-					BeforeEach(() -> {
-						new File(testdir, "MyClassTests.java").createNewFile();
-						new File(testdir, "HisClassTests.java").createNewFile();
-					});
-					It("should return 2 tests", () -> {
-						List<File> tests = TestScanner.scan(testdir, false);
-						assertThat(tests, is(not(nullValue())));
-						assertThat(tests.size(), is(2));
-					});
-					});
-				Context("when the directory contains non-test files", () -> {
-					BeforeEach(() -> {
-						new File(testdir, "MyClass.java").createNewFile();
-					});
-					It("should return an empty list", () -> {
-						List<File> tests = TestScanner.scan(testdir, false);
-						assertThat(tests, is(not(nullValue())));
-						assertThat(tests.size(), is(0));
-					});
-				});
-				Context("when the directory contains a directory", () -> {
-					BeforeEach(() -> {
-						new File(testdir, "MyDirectoryTest.java").mkdirs();
-					});
-					It("should return an empty list", () -> {
-						List<File> tests = TestScanner.scan(testdir, false);
-						assertThat(tests, is(not(nullValue())));
-						assertThat(tests.size(), is(0));
-					});
-				});
-			});
-		});
-	}
-	
-	static File mktestdir() {
-		File testdir = null;
-		File baseDir = new File(System.getProperty("java.io.tmpdir"));
-		String baseName = "testdir-" + System.currentTimeMillis() + "-";
+    File testDir;
 
-		for (int counter = 0; counter < Integer.MAX_VALUE; counter++) {
-			testdir = new File(baseDir, baseName + counter);
-			if (testdir.mkdir()) {
-				return testdir;
-			}
-		}
-		return baseDir;
-	}
+    {
+        Describe("TestScanner", () -> Context("#scan", () -> {
+                    BeforeEach(() -> testDir = mkTestDir());
+                    AfterEach(() -> FileUtils.deleteDirectory(testDir));
+                    Context("when the directory contains *Test.java tests", () -> {
+                        BeforeEach(() -> {
+                            new File(testDir, "MyClassTest.java").createNewFile();
+                            new File(testDir, "HisClassTest.java").createNewFile();
+                        });
+                        It("should return 2 tests", () -> {
+                            List<File> tests = TestScanner.scan(testDir, false);
+                            assertThat(tests, is(not(nullValue())));
+                            assertThat(tests.size(), is(2));
+                        });
+                    });
+                    Context("when the directory contains *Tests.java tests", () -> {
+                        BeforeEach(() -> {
+                            new File(testDir, "MyClassTests.java").createNewFile();
+                            new File(testDir, "HisClassTests.java").createNewFile();
+                        });
+                        It("should return 2 tests", () -> {
+                            List<File> tests = TestScanner.scan(testDir, false);
+                            assertThat(tests, is(not(nullValue())));
+                            assertThat(tests.size(), is(2));
+                        });
+                    });
+                    Context("when the directory contains non-test files", () -> {
+                        BeforeEach(() -> new File(testDir, "MyClass.java").createNewFile());
+                        It("should return an empty list", () -> {
+                            List<File> tests = TestScanner.scan(testDir, false);
+                            assertThat(tests, is(not(nullValue())));
+                            assertThat(tests.size(), is(0));
+                        });
+                    });
+                    Context("when the directory contains a directory", () -> {
+                        BeforeEach(() -> new File(testDir, "MyDirectoryTest.java").mkdirs());
+                        It("should return an empty list", () -> {
+                            List<File> tests = TestScanner.scan(testDir, false);
+                            assertThat(tests, is(not(nullValue())));
+                            assertThat(tests.size(), is(0));
+                        });
+                    });
+                })
+        );
+    }
+
+    static File mkTestDir() {
+        File testdir;
+        File baseDir = new File(System.getProperty("java.io.tmpdir"));
+        String baseName = "testdir-" + System.currentTimeMillis() + "-";
+
+        for (int counter = 0; counter < Integer.MAX_VALUE; counter++) {
+            testdir = new File(baseDir, baseName + counter);
+            if (testdir.mkdir()) {
+                return testdir;
+            }
+        }
+        return baseDir;
+    }
 }

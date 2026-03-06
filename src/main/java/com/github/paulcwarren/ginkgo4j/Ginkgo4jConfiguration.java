@@ -11,8 +11,7 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface Ginkgo4jConfiguration {
 
-	public static int DEFAULT_THREADS = 4;
-	
-	int threads() default DEFAULT_THREADS;
+    int DEFAULT_THREADS = 4;
 
+    int threads() default DEFAULT_THREADS;
 }

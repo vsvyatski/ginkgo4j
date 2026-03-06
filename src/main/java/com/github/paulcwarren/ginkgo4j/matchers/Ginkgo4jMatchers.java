@@ -19,7 +19,7 @@ public final class Ginkgo4jMatchers {
             throws InterruptedException {
 
         Instant start = Instant.now();
-        T result = null;
+        T result;
         do {
 
             result = subjectSupplier.get();
@@ -29,7 +29,7 @@ public final class Ginkgo4jMatchers {
                 try {
                     expectations.accept(result);
                     return;
-                } catch (Throwable t) {}
+                } catch (Throwable ignored) {}
             }
         } while (Duration.between(start, Instant.now()).compareTo(timeout) < 0);
 

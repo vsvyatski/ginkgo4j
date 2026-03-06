@@ -1,22 +1,18 @@
 package impl.com.github.paulcwarren.ginkgo4j.junit;
 
-import java.util.EmptyStackException;
+import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
+import impl.com.github.paulcwarren.ginkgo4j.IdBuilder;
+import impl.com.github.paulcwarren.ginkgo4j.TitleBuilder;
+import impl.com.github.paulcwarren.ginkgo4j.builder.TestVisitor;
+import org.junit.runner.Description;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
-import org.junit.runner.Description;
-
-import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
-
-import impl.com.github.paulcwarren.ginkgo4j.IdBuilder;
-import impl.com.github.paulcwarren.ginkgo4j.TitleBuilder;
-import impl.com.github.paulcwarren.ginkgo4j.builder.TestVisitor;
-
 public class JunitDescriptionsCollector implements TestVisitor {
 
 	private final Map<String, Description> descriptions = new HashMap<>();
-	private final Stack<Description> descContext = new Stack<>();
 	private final Stack<String> idContext = new Stack<>();
 	private final Description description;
 	private final Class<?> clazz;
@@ -69,12 +65,6 @@ public class JunitDescriptionsCollector implements TestVisitor {
 	}
 	
 	public void afterEach(ExecutableBlock block) {
-	}
-
-	private void safePeek(Description childDesc) {
-		try {
-			descContext.peek().addChild(childDesc);
-		} catch (EmptyStackException ignored) {}
 	}
 
 	@Override

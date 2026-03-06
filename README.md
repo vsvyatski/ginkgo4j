@@ -17,7 +17,7 @@ Feature List:-
   - Test your Spring applications  
 
 ## Requires
-- At least Java 17
+- At least Java 21
 
 ## Getting Started
 - Add the ginkgo4j to your project as a test dependency.  For a maven project add:

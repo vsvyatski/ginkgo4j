@@ -11,10 +11,6 @@
         Ginkgo-style testing for Java. Based on original code from Paul Warren. There was a need to bring
         it up to date.
     </description>
-    <organization>
-        <name>Vladimir Svyatski</name>
-        <url>https://github.com/vsvyatski</url>
-    </organization>
     <issueManagement>
         <system>Github</system>
         <url>https://github.com/vsvyatski/ginkgo4j/issues</url>

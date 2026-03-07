@@ -19,10 +19,6 @@
         <system>Github</system>
         <url>https://github.com/vsvyatski/ginkgo4j/issues</url>
     </issueManagement>
-    <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.org/vsvyatski/ginkgo4j</url>
-    </ciManagement>
 
     <scm>
         <url>http://github.com/vsvyatski/ginkgo4j</url>

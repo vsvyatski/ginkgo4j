@@ -43,9 +43,9 @@ public class SpecCollectorTests {
                 It("should collect focussed specs only", () -> {
                     assertThat(collector.getSpecs(), is(not(nullValue())));
                     assertThat(collector.getSpecs().size(), is(2));
-                    assertThat(collector.getSpecs().get(0).getId(), is("Test Class.A context.focussed"));
+                    assertThat(collector.getSpecs().get(0).getId(), is("JustTest Class.A context.focussed"));
                     assertThat(collector.getSpecs().get(0).isFocused(), is(true));
-                    assertThat(collector.getSpecs().get(1).getId(), is("Test Class.A context.not focussed"));
+                    assertThat(collector.getSpecs().get(1).getId(), is("JustTest Class.A context.not focussed"));
                     assertThat(collector.getSpecs().get(1).isFocused(), is(false));
                 });
             });
@@ -94,7 +94,7 @@ public class SpecCollectorTests {
 
     static class TestClass {
         {
-            Describe("Test Class", () -> {
+            Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {
                 });
                 Context("A context", () -> {
@@ -111,7 +111,7 @@ public class SpecCollectorTests {
 
     static class FItTestClass {
         {
-            Describe("Test Class", () -> {
+            Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {
                 });
                 Context("A context", () -> {

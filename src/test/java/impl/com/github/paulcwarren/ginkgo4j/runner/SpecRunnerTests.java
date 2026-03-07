@@ -44,7 +44,7 @@ public class SpecRunnerTests {
 
                 BeforeEach(this::setupOneBeforeOneAfterSpec);
 
-                It("should call BeforeEach, It and then AfterEach", () -> {
+                It("should call BeforeEach, InvokeTest and then AfterEach", () -> {
                     InOrder order = inOrder(listener, before, it, after);
                     order.verify(listener).testStarted(eq("some id"));
                     order.verify(before).invoke();
@@ -63,7 +63,7 @@ public class SpecRunnerTests {
                     doThrow(Exception.class).when(before).invoke();
                 });
 
-                It("should call AfterEach but not the It", () -> {
+                It("should call AfterEach but not the InvokeTest", () -> {
                     InOrder order = inOrder(listener, before, it, after);
                     order.verify(listener).testStarted("some id");
                     order.verify(before).invoke();
@@ -82,7 +82,7 @@ public class SpecRunnerTests {
                     doThrow(Throwable.class).when(before).invoke();
                 });
 
-                It("should call AfterEach but not the It", () -> {
+                It("should call AfterEach but not the InvokeTest", () -> {
                     InOrder order = inOrder(listener, before, it, after);
                     order.verify(listener).testStarted("some id");
                     order.verify(before).invoke();
@@ -142,7 +142,7 @@ public class SpecRunnerTests {
 
             });
 
-            Context("when an It throws an Exception", () -> {
+            Context("when an InvokeTest throws an Exception", () -> {
 
                 BeforeEach(() -> {
                     setupOneBeforeOneAfterSpec();
@@ -161,7 +161,7 @@ public class SpecRunnerTests {
                 });
             });
 
-            Context("when an It throws a Throwable", () -> {
+            Context("when an InvokeTest throws a Throwable", () -> {
 
                 BeforeEach(() -> {
                     setupOneBeforeOneAfterSpec();
@@ -187,7 +187,7 @@ public class SpecRunnerTests {
                     doThrow(Exception.class).when(after).invoke();
                 });
 
-                It("should call the BeforeEach, the It and the AfterEach", () -> {
+                It("should call the BeforeEach, the InvokeTest and the AfterEach", () -> {
                     InOrder order = inOrder(listener, before, it, after);
                     order.verify(listener).testStarted("some id");
                     order.verify(before).invoke();
@@ -207,7 +207,7 @@ public class SpecRunnerTests {
                     doThrow(Throwable.class).when(after).invoke();
                 });
 
-                It("should call the BeforeEach, the It and the AfterEach", () -> {
+                It("should call the BeforeEach, the InvokeTest and the AfterEach", () -> {
                     InOrder order = inOrder(listener, before, it, after);
                     order.verify(listener).testStarted("some id");
                     order.verify(before).invoke();
@@ -220,7 +220,7 @@ public class SpecRunnerTests {
 
             });
 
-            Context("when a It has a JustBeforeEach", () -> {
+            Context("when a InvokeTest has a JustBeforeEach", () -> {
 
                 BeforeEach(() -> {
                     this.setupOneBeforeOneAfterSpec();

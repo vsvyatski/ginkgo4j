@@ -27,7 +27,7 @@ public class TestScannerTests {
         Describe("TestScanner", () -> Context("#scan", () -> {
                     BeforeEach(() -> testDir = mkTestDir());
                     AfterEach(() -> FileUtils.deleteDirectory(testDir));
-                    Context("when the directory contains *Test.java tests", () -> {
+                    Context("when the directory contains *JustTest.java tests", () -> {
                         BeforeEach(() -> {
                             new File(testDir, "MyClassTest.java").createNewFile();
                             new File(testDir, "HisClassTest.java").createNewFile();

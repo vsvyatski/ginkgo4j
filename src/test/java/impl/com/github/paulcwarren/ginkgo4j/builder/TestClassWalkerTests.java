@@ -41,7 +41,7 @@ public class TestClassWalkerTests {
 
     static class TestClass {
         {
-            Describe("Test Class", () -> {
+            Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {
                 });
                 Context("A context", () -> {

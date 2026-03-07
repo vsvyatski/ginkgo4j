@@ -17,8 +17,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @Ginkgo4jConfiguration(threads = 1)
 public class ExecutableChainBuilderTests {
 
-    private final It it1 = new It();
-    private final It it2 = new It();
+    private final InvokeTest invokeTest1 = new InvokeTest();
+    private final InvokeTest invokeTest2 = new InvokeTest();
     private ExecutableChainBuilder builder;
 
     {
@@ -82,14 +82,14 @@ public class ExecutableChainBuilderTests {
                     builder = new ExecutableChainBuilder("describe something similar.context.it");
                     Ginkgo4jDSL.setVisitor(builder);
                     Ginkgo4jDSL.Describe("describe", () ->
-                            Context("context", () -> It("it", it1)));
+                            Context("context", () -> It("it", invokeTest1)));
                     Ginkgo4jDSL.Describe("describe something similar", () ->
-                            Context("context", () -> It("it", it2)));
+                            Context("context", () -> It("it", invokeTest2)));
                     Ginkgo4jDSL.unsetVisitor(builder);
                 });
 
-                It("should capture the correct It", () ->
-                        assertThat(builder.getExecutableChain().getSpec(), is(it2)));
+                It("should capture the correct InvokeTest", () ->
+                        assertThat(builder.getExecutableChain().getSpec(), is(invokeTest2)));
             });
 
             Context("when a Describe has two similar Contexts", () -> {
@@ -98,14 +98,14 @@ public class ExecutableChainBuilderTests {
                     builder = new ExecutableChainBuilder("describe.does something similar.it");
                     Ginkgo4jDSL.setVisitor(builder);
                     Ginkgo4jDSL.Describe("describe", () -> {
-                        Context("does something", () -> It("it", it1));
-                        Context("does something similar", () -> It("it", it2));
+                        Context("does something", () -> It("it", invokeTest1));
+                        Context("does something similar", () -> It("it", invokeTest2));
                     });
                     Ginkgo4jDSL.unsetVisitor(builder);
                 });
 
-                It("should capture the correct It", () ->
-                        assertThat(builder.getExecutableChain().getSpec(), is(it2)));
+                It("should capture the correct InvokeTest", () ->
+                        assertThat(builder.getExecutableChain().getSpec(), is(invokeTest2)));
             });
 
             Context("when a Describe has two similar Its", () -> {
@@ -114,14 +114,14 @@ public class ExecutableChainBuilderTests {
                     builder = new ExecutableChainBuilder("describe.does something similar");
                     Ginkgo4jDSL.setVisitor(builder);
                     Ginkgo4jDSL.Describe("describe", () -> {
-                        It("does something", it1);
-                        It("does something similar", it2);
+                        It("does something", invokeTest1);
+                        It("does something similar", invokeTest2);
                     });
                     Ginkgo4jDSL.unsetVisitor(builder);
                 });
 
-                It("should capture the correct It", () ->
-                        assertThat(builder.getExecutableChain().getSpec(), is(it2)));
+                It("should capture the correct InvokeTest", () ->
+                        assertThat(builder.getExecutableChain().getSpec(), is(invokeTest2)));
             });
 
             Context("when a top-level Context has a Describe block", () -> {
@@ -130,17 +130,17 @@ public class ExecutableChainBuilderTests {
                     builder = new ExecutableChainBuilder("context.has a describe.it");
                     Ginkgo4jDSL.setVisitor(builder);
                     Ginkgo4jDSL.Context("context", () ->
-                            Describe("has a describe", () -> It("it", it1)));
+                            Describe("has a describe", () -> It("it", invokeTest1)));
                     Ginkgo4jDSL.unsetVisitor(builder);
                 });
 
-                It("should capture the correct It", () -> {
+                It("should capture the correct InvokeTest", () -> {
                     assertThat(builder.getExecutableChain().getContext().size(), is(2));
                     assertThat(builder.getExecutableChain().getContext().get(0), instanceOf(Context.class));
                     assertThat(builder.getExecutableChain().getContext().get(0).getId(), is("context"));
                     assertThat(builder.getExecutableChain().getContext().get(1), instanceOf(Describe.class));
                     assertThat(builder.getExecutableChain().getContext().get(1).getId(), is("has a describe"));
-                    assertThat(builder.getExecutableChain().getSpec(), is(it1));
+                    assertThat(builder.getExecutableChain().getSpec(), is(invokeTest1));
                 });
             });
 
@@ -151,11 +151,11 @@ public class ExecutableChainBuilderTests {
                     Ginkgo4jDSL.setVisitor(builder);
                     Ginkgo4jDSL.Describe("a describe", () ->
                             Ginkgo4jDSL.Context("has a context", () ->
-                                    Describe("has a describe", () -> It("it", it1))));
+                                    Describe("has a describe", () -> It("it", invokeTest1))));
                     Ginkgo4jDSL.unsetVisitor(builder);
                 });
 
-                It("should capture the correct It", () -> {
+                It("should capture the correct InvokeTest", () -> {
                     assertThat(builder.getExecutableChain().getContext().size(), is(3));
                     assertThat(builder.getExecutableChain().getContext().get(0), instanceOf(Describe.class));
                     assertThat(builder.getExecutableChain().getContext().get(0).getId(), is("a describe"));
@@ -163,7 +163,7 @@ public class ExecutableChainBuilderTests {
                     assertThat(builder.getExecutableChain().getContext().get(1).getId(), is("has a context"));
                     assertThat(builder.getExecutableChain().getContext().get(2), instanceOf(Describe.class));
                     assertThat(builder.getExecutableChain().getContext().get(2).getId(), is("has a describe"));
-                    assertThat(builder.getExecutableChain().getSpec(), is(it1));
+                    assertThat(builder.getExecutableChain().getSpec(), is(invokeTest1));
                 });
             });
 
@@ -174,12 +174,12 @@ public class ExecutableChainBuilderTests {
                         builder = new ExecutableChainBuilder("/{special}/{characters}/.context.it");
                         Ginkgo4jDSL.setVisitor(builder);
                         Ginkgo4jDSL.Describe("/{special}/{characters}/", () ->
-                                Context("context", () -> It("it", it1)));
+                                Context("context", () -> It("it", invokeTest1)));
                         Ginkgo4jDSL.unsetVisitor(builder);
                     });
 
-                    It("should capture the It", () ->
-                            assertThat(builder.getExecutableChain().getSpec(), is(it1)));
+                    It("should capture the InvokeTest", () ->
+                            assertThat(builder.getExecutableChain().getSpec(), is(invokeTest1)));
                 });
 
                 Context("when the context contains regex special characters", () -> {
@@ -187,12 +187,12 @@ public class ExecutableChainBuilderTests {
                         builder = new ExecutableChainBuilder("describe./{special}/{characters}/.it");
                         Ginkgo4jDSL.setVisitor(builder);
                         Ginkgo4jDSL.Describe("describe", () ->
-                                Context("/{special}/{characters}/", () -> It("it", it1)));
+                                Context("/{special}/{characters}/", () -> It("it", invokeTest1)));
                         Ginkgo4jDSL.unsetVisitor(builder);
                     });
 
-                    It("should capture the It", () ->
-                            assertThat(builder.getExecutableChain().getSpec(), is(it1)));
+                    It("should capture the InvokeTest", () ->
+                            assertThat(builder.getExecutableChain().getSpec(), is(invokeTest1)));
                 });
 
                 Context("when the it contains regex special characters", () -> {
@@ -201,12 +201,12 @@ public class ExecutableChainBuilderTests {
                         Ginkgo4jDSL.setVisitor(builder);
                         Ginkgo4jDSL.Describe("describe", () ->
                                 Context("context", () ->
-                                        It("/{special}/{characters}/", it1)));
+                                        It("/{special}/{characters}/", invokeTest1)));
                         Ginkgo4jDSL.unsetVisitor(builder);
                     });
 
-                    It("should capture the It", () ->
-                            assertThat(builder.getExecutableChain().getSpec(), is(it1)));
+                    It("should capture the InvokeTest", () ->
+                            assertThat(builder.getExecutableChain().getSpec(), is(invokeTest1)));
                 });
 
                 Context("when a test class with empty labels is invoked", () -> {
@@ -230,7 +230,7 @@ public class ExecutableChainBuilderTests {
         });
     }
 
-    public static class It implements ExecutableBlock {
+    public static class InvokeTest implements ExecutableBlock {
         @Override
         public void invoke() {
         }

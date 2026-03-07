@@ -24,7 +24,6 @@ import com.github.paulcwarren.ginkgo4j.Ginkgo4jRunner;
 @RunWith(Ginkgo4jRunner.class)
 public class FileWatcherTests {
 
-    FileWatcher watcher;
     FileWatcherListener listener;
 
     File testDir;
@@ -47,11 +46,12 @@ public class FileWatcherTests {
                 Context("when that test file is modified", () -> {
                     BeforeEach(() -> when(testFile.lastModified()).thenReturn(10L).thenReturn(20L));
                     It("should inform the listener", () ->
-                            await().atMost(1, SECONDS).until(() -> verify(listener).testChanged()));
+                            await().atMost(1, SECONDS).untilAsserted(() -> verify(listener).testChanged()));
                 });
                 Context("when that test file is not modified", () ->
                         It("should inform the listener", () ->
-                                await().atMost(1, SECONDS).until(() -> verifyNoMoreInteractions(listener)))
+                                await().atMost(1, SECONDS)
+                                        .untilAsserted(() -> verifyNoMoreInteractions(listener)))
                 );
             });
         }));

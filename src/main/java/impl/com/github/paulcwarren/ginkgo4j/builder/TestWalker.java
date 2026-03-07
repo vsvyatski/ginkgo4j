@@ -19,10 +19,9 @@ public class TestWalker implements TestVisitor {
         try {
             Ginkgo4jDSL.setVisitor(this);
             try {
-                Object test = testClass.getDeclaredConstructor().newInstance();
+                Object test = testClass.newInstance();
                 test(test);
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                     NoSuchMethodException e) {
+            } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace(System.err);
             }
         } finally {

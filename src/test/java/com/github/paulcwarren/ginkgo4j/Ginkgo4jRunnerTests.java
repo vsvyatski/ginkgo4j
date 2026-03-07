@@ -77,7 +77,7 @@ public class Ginkgo4jRunnerTests {
 
                         ArgumentCaptor<Failure> failureCaptor = ArgumentCaptor.forClass(Failure.class);
                         verify(notifier, times(1)).fireTestFailure(failureCaptor.capture());
-                        assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(23));
+                        assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(21));
 
                         verify(notifier, times(1)).fireTestFinished(any());
                     });
@@ -96,7 +96,7 @@ public class Ginkgo4jRunnerTests {
 
                         ArgumentCaptor<Failure> failureCaptor = ArgumentCaptor.forClass(Failure.class);
                         verify(notifier, times(1)).fireTestFailure(failureCaptor.capture());
-                        assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(30));
+                        assertThat(failureCaptor.getValue().getException().getStackTrace()[0].getLineNumber(), is(27));
 
                         verify(notifier, times(1)).fireTestFinished(any());
                     });

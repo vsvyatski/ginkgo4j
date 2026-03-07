@@ -25,9 +25,9 @@ public class JunitDescriptionsCollectorTests {
             JustBeforeEach(() -> walker.walk(collector));
             Context("given a test class with a conventional Describe->Context->InvokeTest structure", () -> {
                 BeforeEach(() -> {
-                    description = Description.createSuiteDescription(TestClass.class.getName(), (Annotation[]) null);
-                    collector = new JunitDescriptionsCollector(TestClass.class, description);
-                    walker = new TestWalker(TestClass.class);
+                    description = Description.createSuiteDescription(JustTest.class.getName(), (Annotation[]) null);
+                    collector = new JunitDescriptionsCollector(JustTest.class, description);
+                    walker = new TestWalker(JustTest.class);
                 });
                 It("should collect all descriptions into a tree structure under the root description", () -> {
                     assertThat(description.getChildren().size(), is(1));
@@ -40,9 +40,9 @@ public class JunitDescriptionsCollectorTests {
             });
             Context("given a test class with a top-level Context", () -> {
                 BeforeEach(() -> {
-                    description = Description.createSuiteDescription(TestClass.class.getName(), (Annotation[]) null);
-                    collector = new JunitDescriptionsCollector(TestClass.class, description);
-                    walker = new TestWalker(TestClass.class);
+                    description = Description.createSuiteDescription(JustTest.class.getName(), (Annotation[]) null);
+                    collector = new JunitDescriptionsCollector(JustTest.class, description);
+                    walker = new TestWalker(JustTest.class);
                 });
                 It("should collect all descriptions into a tree structure under the root description", () -> {
                     assertThat(description.getChildren().size(), is(1));
@@ -56,8 +56,8 @@ public class JunitDescriptionsCollectorTests {
             });
             Context("given a test class with a nested Describe", () -> {
                 BeforeEach(() -> {
-                    description = Description.createSuiteDescription(TestClass.class.getName(), (Annotation[]) null);
-                    collector = new JunitDescriptionsCollector(TestClass.class, description);
+                    description = Description.createSuiteDescription(JustTest.class.getName(), (Annotation[]) null);
+                    collector = new JunitDescriptionsCollector(JustTest.class, description);
                     walker = new TestWalker(NestedDescribeTest.class);
                 });
                 It("should collect all descriptions into a tree structure under the root description", () -> {
@@ -89,7 +89,7 @@ public class JunitDescriptionsCollectorTests {
         });
     }
 
-    public static class TestClass {
+    public static class JustTest {
         {
             Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {

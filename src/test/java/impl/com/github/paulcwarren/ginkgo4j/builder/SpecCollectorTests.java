@@ -21,7 +21,7 @@ public class SpecCollectorTests {
         Describe("Spec Collector", () -> {
             BeforeEach(() -> {
                 collector = new SpecsCollector();
-                walker = new TestWalker(TestClass.class);
+                walker = new TestWalker(JustTest.class);
             });
 
             JustBeforeEach(() -> {
@@ -38,7 +38,7 @@ public class SpecCollectorTests {
             });
 
             Context("when specs are focused", () -> {
-                BeforeEach(() -> walker = new TestWalker(FItTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(FItTest.class));
 
                 It("should collect focussed specs only", () -> {
                     assertThat(collector.getSpecs(), is(not(nullValue())));
@@ -51,7 +51,7 @@ public class SpecCollectorTests {
             });
 
             Context("when specs contain empty labels", () -> {
-                BeforeEach(() -> walker = new TestWalker(EmptyLabelsTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(EmptyLabelsTest.class));
 
                 It("should collect specs with parsed IDs", () -> {
                     assertThat(collector.getSpecs(), is(not(nullValue())));
@@ -61,38 +61,38 @@ public class SpecCollectorTests {
             });
 
             Context("when a describe throws an exception", () -> {
-                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingDescribeTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingDescribeTest.class));
 
                 It("should throw the exception", () -> assertThat(t, instanceOf(NullPointerException.class)));
             });
 
             Context("when a context throws an exception", () -> {
-                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingContextTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingContextTest.class));
 
                 It("should throw the exception", () -> assertThat(t, instanceOf(NullPointerException.class)));
             });
 
             Context("when a beforeEach throws an exception", () -> {
-                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingBeforeEachTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingBeforeEachTest.class));
 
                 It("should throw the exception", () -> assertThat(t, is(nullValue())));
             });
 
             Context("when a justBeforeEach throws an exception", () -> {
-                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingJustBeforeEachTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingJustBeforeEachTest.class));
 
                 It("should not throw the exception", () -> assertThat(t, is(nullValue())));
             });
 
             Context("when an afterEach throws an exception", () -> {
-                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingAfterEachTestClass.class));
+                BeforeEach(() -> walker = new TestWalker(ExceptionThrowingAfterEachTest.class));
 
                 It("should not throw the exception", () -> assertThat(t, is(nullValue())));
             });
         });
     }
 
-    static class TestClass {
+    static class JustTest {
         {
             Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {
@@ -109,7 +109,7 @@ public class SpecCollectorTests {
         }
     }
 
-    static class FItTestClass {
+    static class FItTest {
         {
             Describe("JustTest Class", () -> {
                 JustBeforeEach(() -> {
@@ -128,7 +128,7 @@ public class SpecCollectorTests {
         }
     }
 
-    static class EmptyLabelsTestClass {
+    static class EmptyLabelsTest {
         {
             Describe("", () -> {
                 Context("", () -> It("", () -> {
@@ -139,8 +139,8 @@ public class SpecCollectorTests {
         }
     }
 
-    static class ExceptionThrowingDescribeTestClass {
-        private String something;
+    static class ExceptionThrowingDescribeTest {
+        private final String something = null;
 
         {
             Describe("A describe", () -> {
@@ -151,8 +151,8 @@ public class SpecCollectorTests {
         }
     }
 
-    static class ExceptionThrowingContextTestClass {
-        private String something;
+    static class ExceptionThrowingContextTest {
+        private final String something = null;
 
         {
             Describe("A describe", () ->
@@ -164,8 +164,8 @@ public class SpecCollectorTests {
         }
     }
 
-    static class ExceptionThrowingBeforeEachTestClass {
-        private String something;
+    static class ExceptionThrowingBeforeEachTest {
+        private final String something = null;
 
         {
             Describe("A describe", () -> {
@@ -176,8 +176,8 @@ public class SpecCollectorTests {
         }
     }
 
-    static class ExceptionThrowingJustBeforeEachTestClass {
-        private String something;
+    static class ExceptionThrowingJustBeforeEachTest {
+        private final String something = null;
 
         {
             Describe("A describe", () -> {
@@ -188,8 +188,8 @@ public class SpecCollectorTests {
         }
     }
 
-    static class ExceptionThrowingAfterEachTestClass {
-        private String something;
+    static class ExceptionThrowingAfterEachTest {
+        private final String something = null;
 
         {
             Describe("A describe", () -> {

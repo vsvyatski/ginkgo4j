@@ -3,8 +3,6 @@ package impl.com.github.paulcwarren.ginkgo4j.builder;
 import com.github.paulcwarren.ginkgo4j.ExecutableBlock;
 import com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class TestWalker implements TestVisitor {
 
     private final Class<?> testClass;

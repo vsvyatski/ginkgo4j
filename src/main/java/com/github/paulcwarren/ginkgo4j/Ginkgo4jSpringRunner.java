@@ -63,7 +63,7 @@ public class Ginkgo4jSpringRunner extends SpringJUnit4ClassRunner {
                     try {
                         mgr.prepareTestInstance(chain.getTestObject());
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        e.printStackTrace(System.err);
                     }
                 }
 

@@ -36,7 +36,7 @@ public class ExecutableChainBuilder implements TestVisitor {
                 level++;
                 block.invoke();
             } catch (Throwable e) {
-                e.printStackTrace();
+                e.printStackTrace(System.err);
             } finally {
                 level--;
             }
@@ -55,7 +55,7 @@ public class ExecutableChainBuilder implements TestVisitor {
                 level++;
                 block.invoke();
             } catch (Throwable e) {
-                e.printStackTrace();
+                e.printStackTrace(System.err);
             } finally {
                 level--;
             }
@@ -89,7 +89,7 @@ public class ExecutableChainBuilder implements TestVisitor {
                 chain.setSpec(block);
                 chain.setIsFocused(isFocused | chain.isFocused());
             } catch (Exception e) {
-                e.printStackTrace();
+                e.printStackTrace(System.err);
             }
         }
     }

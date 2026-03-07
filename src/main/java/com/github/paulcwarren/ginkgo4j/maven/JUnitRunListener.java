@@ -125,7 +125,7 @@ public class JUnitRunListener extends RunListener {
             fieldValue = fieldValue.replaceAll("\\.", " ");
             return fieldValue;
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(console);
         }
         return "Unknown test";
     }

@@ -14,21 +14,6 @@ public class TestWalker implements TestVisitor {
         this.testClass = testClass;
     }
 
-    public void walk() {
-        try {
-            Ginkgo4jDSL.setVisitor(this);
-            try {
-                testClass.getDeclaredConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
-                     NoSuchMethodException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        } finally {
-            Ginkgo4jDSL.unsetVisitor(this);
-        }
-    }
-
     public void walk(TestVisitor... visitors) {
         this.visitors = visitors;
         try {
@@ -38,8 +23,7 @@ public class TestWalker implements TestVisitor {
                 test(test);
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException |
                      NoSuchMethodException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                e.printStackTrace(System.err);
             }
         } finally {
             Ginkgo4jDSL.unsetVisitor(this);

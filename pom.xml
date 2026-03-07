@@ -115,6 +115,15 @@
                         <include>**/*Tests.java</include>
                     </includes>
                 </configuration>
+                <dependencies>
+                    <!-- We need this for now, otherwise Surefire won't see our vintage tests
+                    which are not JUnit 5+ just yet. -->
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>3.5.5</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>

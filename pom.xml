@@ -4,6 +4,7 @@
     <groupId>io.github.vsvyatski</groupId>
     <artifactId>ginkgo4j</artifactId>
     <version>2.2.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>Ginkgo 4 Java</name>
     <url>https://github.com/vsvyatski/ginkgo4j</url>
@@ -11,24 +12,6 @@
         Ginkgo-style testing for Java. Based on original code from Paul Warren. There was a need to bring
         it up to date.
     </description>
-    <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/vsvyatski/ginkgo4j/issues</url>
-    </issueManagement>
-
-    <scm>
-        <url>http://github.com/vsvyatski/ginkgo4j</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>Paul Warren</name>
-            <email>paul_c_warren@yahoo d.com</email>
-        </developer>
-        <developer>
-            <name>Vladimir Svyatski</name>
-        </developer>
-    </developers>
 
     <licenses>
         <license>
@@ -37,6 +20,30 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>paulcwarren</id>
+            <name>Paul Warren</name>
+            <email>paul_c_warren@yahoo d.com</email>
+        </developer>
+        <developer>
+            <id>vsvyatski</id>
+            <name>Vladimir Svyatski</name>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/vsvyatski/ginkgo4j.git</connection>
+        <developerConnection>scm:git:ssh://github.com:vsvyatski/ginkgo4j.git</developerConnection>
+        <url>https://github.com/vsvyatski/ginkgo4j/tree/master</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/vsvyatski/ginkgo4j/issues</url>
+    </issueManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -134,6 +141,38 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.10.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                    <waitUntil>published</waitUntil>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.8</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Required for gpg2 to avoid GUI prompts -->
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -165,26 +204,6 @@
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.2.8</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                                <configuration>
-                                    <gpgArguments>
-                                        <arg>--pinentry-mode</arg>
-                                        <arg>loopback</arg>
-                                    </gpgArguments>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

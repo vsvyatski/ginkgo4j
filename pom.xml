@@ -164,7 +164,7 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <!-- Required for gpg2 to avoid GUI prompts -->
+                            <!-- Required for gpg or gpg2 to avoid GUI prompts -->
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
@@ -198,6 +198,10 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>3.12.0</version>
+                        <configuration>
+                            <doclint>none</doclint>
+                            <quiet>true</quiet>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>

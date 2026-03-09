@@ -149,7 +149,8 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                     <autoPublish>true</autoPublish>
-                    <waitUntil>published</waitUntil>
+                    <!-- The "published" option can take quite a long time to wait. -->
+                    <waitUntil>validated</waitUntil>
                 </configuration>
             </plugin>
             <plugin>

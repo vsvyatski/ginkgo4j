@@ -117,7 +117,7 @@ Let’s break this down:
 
 Success!
 
-## Focussed Specs
+## Focused Specs
 
 It is often convenient, when developing to be able to run a subset of specs. Ginkgo4J allows you to focus individual
 specs or whole containers of specs programmatically by adding an F in front of your *Describe*, *Context*, and *It*:

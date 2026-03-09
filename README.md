@@ -2,7 +2,7 @@
 
 ## A Java BDD Testing Framework  (based on RSpec and [ginkgo](http://onsi.github.io/ginkgo/))
 
-[![Build Status](https://travis-ci.org/paulcwarren/ginkgo4j.svg?branch=master)](https://travis-ci.org/paulcwarren/ginkgo4j)
+The project was initially created by Paul Warren, but I needed to bring it up to date.
 
 Jump to the [docs](https://paulcwarren.github.io/ginkgo4j) to see more.
 
@@ -21,7 +21,7 @@ Feature List:
 
 ## Requires
 
-- At least Java 21
+- At least Java 17
 
 ## Getting Started
 

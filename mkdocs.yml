@@ -1,5 +1,5 @@
-site_name: Ginkgo4j 
+site_name: Ginkgo4j
 repo_url: https://github.com/vsvyatski/ginkgo4j.git
-pages:
-- Home: index.md
+nav:
+  - Home: index.md
 theme: readthedocs

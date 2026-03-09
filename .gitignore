@@ -5,3 +5,5 @@ target/
 .project
 .classpath
 .settings/
+# MkDocs builds the documentation in the folder below
+site/

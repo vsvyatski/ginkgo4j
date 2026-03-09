@@ -1,135 +1,119 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
-  
-  <link rel="shortcut icon" href="./img/favicon.ico">
-  <title>Home - Ginkgo4j</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
-    var mkdocs_page_url = "/";
-  </script>
-  
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
-  
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Ginkgo4j</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Home";
+        var mkdocs_page_input_path = "index.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
 
   <div class="wy-grid-for-nav">
-
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href="." class="icon icon-home"> Ginkgo4j</a>
-        <div role="search">
+          <a href="." class="icon icon-home"> Ginkgo4j
+        </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href=".">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#ginkgo4j">Ginkgo4j</a></li>
-    
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#a-java-bdd-testing-framework">A Java BDD Testing Framework</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-ginkgo4j">Getting Ginkgo4j</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#getting-started-writing-your-first-test">Getting Started: Writing Your First Test</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#a-java-bdd-testing-framework">A Java BDD Testing Framework</a></li>
-        
-            <li><a class="toctree-l3" href="#getting-ginkgo4j">Getting Ginkgo4j</a></li>
-        
-            <li><a class="toctree-l3" href="#getting-started-writing-your-first-test">Getting Started: Writing Your First Test</a></li>
-        
-            <li><a class="toctree-l3" href="#focussed-specs">Focussed Specs</a></li>
-        
-            <li><a class="toctree-l3" href="#parallel-specs">Parallel Specs</a></li>
-        
-            <li><a class="toctree-l3" href="#spring-support">Spring Support</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#bootstrapping-a-test">Bootstrapping a Test</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-specs">Adding Specs</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#focused-specs">Focused Specs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#parallel-specs">Parallel Specs</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#spring-support">Spring Support</a>
+    </li>
     </ul>
-	    </li>
-          
-        </ul>
+                </li>
+              </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href=".">Ginkgo4j</a>
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href=".">Ginkgo4j</a>
+        
       </nav>
-
-      
       <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Home</li>
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Home</li>
     <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/paulcwarren/ginkgo4j.git/edit/master/docs/index.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
+          <a href="https://github.com/vsvyatski/ginkgo4j.git/edit/master/docs/index.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
 </div>
-          <div role="main">
-            <div class="section">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
                 <h1 id="ginkgo4j">Ginkgo4j</h1>
 <h2 id="a-java-bdd-testing-framework">A Java BDD Testing Framework</h2>
-<p><a href="https://github.com/paulcwarren/ginkgo4j">Ginkgo4j</a> is a BDD-style Java testing framework built to help you efficiently write expressive and comprehensive tests.</p>
-<p>Ginkgo4j was inspired by its namesake <a href="https://onsi.github.io/ginkgo">Ginkgo</a>.  It mirrors frameworks from other languages like RSpec in Ruby.  All of these framework provide a very simply DSL that the developer can use in his test to build up a described context with closures.  </p>
-<p>Since version 8 Java has included it’s version of closures, called Lambda’s.  Whilst there aren’t quite as flexible as some of their equivalents on other languages.  All variable access must be to ‘finals’ for example.  They are sufficient to build an equivalent  testing DSL.  That’s what we decided to do with Ginkgo4j, pronounced Ginkgo for Java.</p>
+<p><a href="https://github.com/vsvyatski/ginkgo4j">Ginkgo4j</a> is a BDD-style Java testing framework initially created by Paul
+Warren, built to help you efficiently write expressive and comprehensive tests.</p>
+<p>Ginkgo4j was inspired by its namesake <a href="https://onsi.github.io/ginkgo">Ginkgo</a>. It mirrors frameworks from other
+languages like RSpec in Ruby. All of these framework provide a very simply DSL that the developer can use in his test
+to build up a described context with closures.</p>
+<p>Since version 8, Java has included its version of closures, called Lambdas. Unfortunately, those aren’t quite as
+flexible as some of their equivalents on other languages. All variable access must be to ‘finals’ for example. They are
+sufficient to build an equivalent testing DSL. That’s what was decided to do with Ginkgo4j, pronounced Ginkgo for Java.</p>
 <h2 id="getting-ginkgo4j">Getting Ginkgo4j</h2>
-<p>Add the ginkgo4j to your project as a test dependency.  For a maven project add:-</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;com.github.paulcwarren&lt;/groupId&gt;
+<p>Add the ginkgo4j to your project as a test dependency. For a Maven project add:</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;io.github.vsvyatski&lt;/groupId&gt;
     &lt;artifactId&gt;ginkgo4j&lt;/artifactId&gt;
-    &lt;version&gt;1.0.9&lt;/version&gt;
+    &lt;version&gt;2.0.0&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-
-<p>or for a Gradle project add:-</p>
-<p><code>compile 'com.github.paulcwarren:ginkgo4j:1.0.9'</code></p>
-<p>for other buold systems see <a href="http://search.maven.org/#artifactdetails%7Ccom.github.paulcwarren%7Cginkgo4j%7C1.0.0%7Cjar">here</a>.</p>
+<p>or for a Gradle project add:</p>
+<pre><code class="language-groovy">compile 'io.github.vsvyatski:ginkgo4j:2.0.0'
+</code></pre>
+<p>for other build systems see
+<a href="https://central.sonatype.com/artifact/io.github.vsvyatski/ginkgo4j/2.2.0/%26smo%3Dtrue">here</a>.</p>
 <h2 id="getting-started-writing-your-first-test">Getting Started: Writing Your First Test</h2>
 <h3 id="bootstrapping-a-test">Bootstrapping a Test</h3>
-<p>In your Java 8 project, add a new test class called BookTests.java as follows:-</p>
-<pre><code class="java">package com.github.paulcwarren.ginkgo4j.examples;
+<p>In your Java project add a new test class called BookTests.java as follows:</p>
+<pre><code class="language-java">package io.github.vsvyatski.ginkgo4j.examples;
 
 import static com.github.paulcwarren.ginkgo4j.Ginkgo4jDSL.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -148,43 +132,43 @@ public class BookTests {
 }
 
 </code></pre>
-
 <p>Let’s break this down:</p>
 <ul>
-<li>The imports <em>Ginkgo4jDSL.</em><em> and </em>Ginkgo4jRunner* add Ginkgo4j’s DSL and JUnit runner to this class.  The JUnit runner allows these style of tests to be run in all IDEs supporting JUnit and also in build tools such as Ant, Maven and Gradle.</li>
-<li>The hamcrest imports add Hamcrest's matcher library that we will use to make assertions in our test. </li>
-<li>We add a top-level <em>Describe</em> container using Ginkgo4j’s <code>Describe(String title, ExecutableBlock block)</code> method.  The top-level braces <code>{}</code> trick allows us to evaluate the <em>Describe</em> at the top level without having to wrap it.  The 2nd argument to the <em>Describe</em> <code>() -&gt; {}</code> is a lambda expression defining an anonymous class that implements the ExecutableBlock interface.  This lamdba expression will contain our specs.  </li>
+<li>The imports <em>Ginkgo4jDSL.</em><em> and </em>Ginkgo4jRunner* add Ginkgo4j’s DSL and JUnit runner to this class. The JUnit runner
+  allows these style of tests to be run in all IDEs supporting JUnit and also in build tools such as Ant, Maven and
+  Gradle.</li>
+<li>The hamcrest imports add Hamcrest's matcher library that we will use to make assertions in our test.</li>
+<li>We add a top-level <em>Describe</em> container using Ginkgo4j’s <code>Describe(String title, ExecutableBlock block)</code> method. The
+  top-level braces <code>{}</code> trick allows us to evaluate the <em>Describe</em> at the top level without having to wrap it. The 2nd
+  argument to the <em>Describe</em> <code>() -&gt; {}</code> is a lambda expression defining an anonymous class that implements the
+  ExecutableBlock interface. This lambda expression will contain our specs.</li>
 </ul>
-<p>At this point you can run you suite.  In eclipse we right-click on or test class and select <code>Run As...-&gt;Junit test</code>.</p>
-<p><img alt="First Run" src="./first-run.png" /></p>
+<p>At this point you can run your suite. In Eclipse, we right-click on our test class and select <code>Run As...-&gt;Junit test</code>.</p>
+<p><img alt="First Run" src="first-run.png" /></p>
 <h3 id="adding-specs">Adding Specs</h3>
 <p>An empty test is not very interesting so let’s add some Specs our Book class.</p>
-<pre><code>private Book longBook;
-private Book shortBook;
-{
- Describe(&quot;Book&quot;, () -&gt; {
-   BeforeEach(() -&gt; {
-     longBook = new Book(&quot;Les Miserables&quot;, &quot;Victor Hugo&quot;, 1488);
-     shortBook = new Book(&quot;Fox In Socks&quot;, &quot;Dr. Seuss&quot;, 24);
-   });
+<pre><code class="language-java">public class MyTest {
+    private Book longBook;
+    private Book shortBook;
 
-   Context(&quot;Categorizing book length&quot;, () -&gt; {
-     Context(&quot;With more than 300 pages&quot;, () -&gt; {
-       It(&quot;should be a novel&quot;, () -&gt; {
-         assertThat(longBook.categoryByLength(), is(&quot;NOVEL&quot;));
-       });
-     });
+    {
+        Describe(&quot;Book&quot;, () -&gt; {
+            BeforeEach(() -&gt; {
+                longBook = new Book(&quot;Les Miserables&quot;, &quot;Victor Hugo&quot;, 1488);
+                shortBook = new Book(&quot;Fox In Socks&quot;, &quot;Dr. Seuss&quot;, 24);
+            });
 
-     Context(&quot;With fewer than 300 pages&quot;, () -&gt; {
-       It(&quot;should be a short story&quot;, () -&gt; {
-         assertThat(shortBook.categoryByLength(), is(&quot;NOVELLA&quot;));
-       });
-     });
-   });
-   });
- }
+            Context(&quot;Categorizing book length&quot;, () -&gt; {
+                Context(&quot;With more than 300 pages&quot;, () -&gt;
+                        It(&quot;should be a novel&quot;, () -&gt; assertThat(longBook.categoryByLength(), is(&quot;NOVEL&quot;))));
+
+                Context(&quot;With fewer than 300 pages&quot;, () -&gt;
+                        It(&quot;should be a short story&quot;, () -&gt; assertThat(shortBook.categoryByLength(), is(&quot;NOVELLA&quot;))));
+            });
+        });
+    }
+}
 </code></pre>
-
 <p>Let’s break this down:</p>
 <ul>
 <li>Ginkgo4J makes extensive use of lambdas to allow you to build descriptive test suites.</li>
@@ -192,91 +176,99 @@ private Book shortBook;
 <li>You can use <em>BeforeEach</em> to set up state for your specs. You use <em>It</em> to specify a single spec.</li>
 <li>In order to share state between a <em>BeforeEach</em> and an <em>It</em> you must use member variables.</li>
 <li>We use Hamcrest’s assertThat syntax to make expectations on the categoryByLength() method.
-Assuming a Book model with this behavior, running this JUnit test in Eclipse (or Intellij) will yield:</li>
+  Assuming a Book model with this behavior, running this JUnit test in Eclipse (or IntelliJ) will yield:</li>
 </ul>
-<p><img alt="Second Run" src="./second-run.png" /></p>
+<p><img alt="Second Run" src="second-run.png" /></p>
 <p>Success!</p>
-<h2 id="focussed-specs">Focussed Specs</h2>
-<p>It is often convenient, when developing to be able to run a subset of specs. Ginkgo4J allows you to focus individual specs or whole containers of specs programatically by adding an F in front of your <em>Describe</em>, <em>Context</em>, and <em>It</em>:</p>
+<h2 id="focused-specs">Focused Specs</h2>
+<p>It is often convenient, when developing to be able to run a subset of specs. Ginkgo4J allows you to focus individual
+specs or whole containers of specs programmatically by adding an F in front of your <em>Describe</em>, <em>Context</em>, and <em>It</em>:</p>
 <pre><code> FDescribe(&quot;some behavior&quot;, () -&gt; { ... })
  FContext(&quot;some scenario&quot;, () -&gt; { ... })
  FIt(&quot;some assertion&quot;, () -&gt; { ... })
 </code></pre>
-
 <p>doing so instructs Ginkgo4J to only run those specs. To run all specs, you’ll need to go back and remove all the Fs.</p>
 <h2 id="parallel-specs">Parallel Specs</h2>
-<p>Ginkgo4J has support for running specs in parallel.  It does this by spawning separate threads and dividing the specs evenly among these threads.  Parallelism is on by default and will use 4 threads.  If you wish to modify this you can add the additional annotation to your test class:-</p>
-<pre><code>@Ginkgo4jConfiguration(threads=1)
+<p>Ginkgo4J has support for running specs in parallel. It does this by spawning separate threads and dividing the specs
+evenly among these threads. Parallelism is on by default and will use 4 threads. If you wish to modify this you can add
+the additional annotation to your test class:-</p>
+<pre><code class="language-java">@Ginkgo4jConfiguration(threads=1)
+public class Tests {}
 </code></pre>
-
 <p>which will instruct Ginkgo4J to run a single thread.</p>
 <h2 id="spring-support">Spring Support</h2>
-<p>Ginkgo4J also offers native support for Spring.  To test a Spring application context simply replace the <code>@RunWith(Ginkgo4jRunner.class)</code> with <code>@RunWith(Ginkgo4jSpringRunner.class)</code> and initialize you test class’ Spring application context in exactly the same way as if you were using Spring’s SpringJUnit4ClassRunner</p>
-<pre><code>@RunWith(Ginkgo4jSpringRunner.class)
+<p>Ginkgo4J also offers native support for Spring. To test a Spring application context simply replace the
+<code>@RunWith(Ginkgo4jRunner.class)</code> with <code>@RunWith(Ginkgo4jSpringRunner.class)</code> and initialize you test class’ Spring
+application context in exactly the same way as if you were using Spring’s SpringJUnit4ClassRunner</p>
+<pre><code class="language-java">@RunWith(Ginkgo4jSpringRunner.class)
 @SpringApplicationConfiguration(classes = Ginkgo4jSpringApplication.class)
 
 public class Ginkgo4jSpringApplicationTests {
-  @Autowired
-  HelloService helloService;
-  {
-  Describe(&quot;Spring intergation&quot;, () -&gt; {
-    It(&quot;should be able to use spring beans&quot;, () -&gt; {
-      assertThat(helloService, is(not(nullValue())));
-    });
+    @Autowired
+    HelloService helloService;
 
-    Context(&quot;hello service&quot;, () -&gt; {
-      It(&quot;should say hello&quot;, () -&gt; {
-        assertThat(helloService.sayHello(&quot;World&quot;), is(&quot;Hello World!&quot;));
-      });
-    });
-   });
-   }
+    {
+        Describe(&quot;Spring integration&quot;, () -&gt; {
+            It(&quot;should be able to use spring beans&quot;, () -&gt; assertThat(helloService, is(not(nullValue()))));
 
-   @Test
-   public void noop() {
-   }
- }
+            Context(&quot;hello service&quot;, () -&gt;
+                    It(&quot;should say hello&quot;, () -&gt; assertThat(helloService.sayHello(&quot;World&quot;), is(&quot;Hello World!&quot;))));
+        });
+    }
+
+    @Test
+    public void noop() {
+    }
+}
 </code></pre>
-
-<p>The <code>noop</code> test class is currently required as Spring’s JUnit runner requires on at least one method annotated with <code>@Test</code>.</p>
+<p>The <code>noop</code> test class is currently required as Spring’s JUnit runner requires on at least one method annotated with
+<code>@Test</code>.</p>
               
             </div>
-          </div>
-          <footer>
-  
+          </div><footer>
 
   <hr/>
 
   <div role="contentinfo">
     <!-- Copyright etc -->
-    
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+          
         </div>
       </div>
 
     </section>
-    
+
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-          <a href="https://github.com/paulcwarren/ginkgo4j.git" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
-      
-      
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/vsvyatski/ginkgo4j.git" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
 </div>
-    <script src="./js/theme.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 0.16.3
-Build Date UTC : 2018-06-06 05:19:17
+MkDocs version : 1.6.1
+Build Date UTC : 2026-03-09 09:05:45.276839+00:00
 -->

@@ -2,20 +2,20 @@
 
 ## A Java BDD Testing Framework
 
-[Ginkgo4j](https://github.com/paulcwarren/ginkgo4j) is a BDD-style Java testing framework built to help you efficiently
-write expressive and comprehensive tests.
+[Ginkgo4j](https://github.com/vsvyatski/ginkgo4j) is a BDD-style Java testing framework initially created by Paul
+Warren, built to help you efficiently write expressive and comprehensive tests.
 
 Ginkgo4j was inspired by its namesake [Ginkgo](https://onsi.github.io/ginkgo). It mirrors frameworks from other
 languages like RSpec in Ruby. All of these framework provide a very simply DSL that the developer can use in his test
 to build up a described context with closures.
 
-Since version 8, Java has included its version of closures, called Lambdas. Whilst there aren’t quite as flexible as
-some of their equivalents on other languages. All variable access must be to ‘finals’ for example. They are sufficient
-to build an equivalent testing DSL. That’s what we decided to do with Ginkgo4j, pronounced Ginkgo for Java.
+Since version 8, Java has included its version of closures, called Lambdas. Unfortunately, those aren’t quite as
+flexible as some of their equivalents on other languages. All variable access must be to ‘finals’ for example. They are
+sufficient to build an equivalent testing DSL. That’s what was decided to do with Ginkgo4j, pronounced Ginkgo for Java.
 
 ## Getting Ginkgo4j
 
-Add the ginkgo4j to your project as a test dependency. For a maven project add:
+Add the ginkgo4j to your project as a test dependency. For a Maven project add:
 
 ```xml
 <dependency>
@@ -31,8 +31,8 @@ or for a Gradle project add:
 compile 'io.github.vsvyatski:ginkgo4j:2.0.0'
 ```
 
-for other build systems
-see [here](http://search.maven.org/#artifactdetails%7Ccom.github.paulcwarren%7Cginkgo4j%7C1.0.0%7Cjar).
+for other build systems see
+[here](https://central.sonatype.com/artifact/io.github.vsvyatski/ginkgo4j/2.2.0/%26smo%3Dtrue).
 
 ## Getting Started: Writing Your First Test
 

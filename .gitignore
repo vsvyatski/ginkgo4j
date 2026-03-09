@@ -1,2 +1,4 @@
 .idea/
+# the 2 folders below might be retained when one switches the branches
 target/
+site/

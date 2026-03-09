@@ -21,14 +21,14 @@ Add the ginkgo4j to your project as a test dependency. For a Maven project add:
 <dependency>
     <groupId>io.github.vsvyatski</groupId>
     <artifactId>ginkgo4j</artifactId>
-    <version>2.0.0</version>
+    <version>2.2.0</version>
 </dependency>
 ```
 
 or for a Gradle project add:
 
 ```groovy
-compile 'io.github.vsvyatski:ginkgo4j:2.0.0'
+compile 'io.github.vsvyatski:ginkgo4j:2.2.0'
 ```
 
 for other build systems see

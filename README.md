@@ -4,7 +4,7 @@
 
 The project was initially created by Paul Warren, but I needed to bring it up to date.
 
-Jump to the [docs](https://paulcwarren.github.io/ginkgo4j) to see more.
+Jump to the [docs](https://vsvyatski.github.io/ginkgo4j) to see more.
 
 Feature List:
 
@@ -32,7 +32,7 @@ Feature List:
 <dependency>
     <groupId>io.github.vsvyastki</groupId>
     <artifactId>ginkgo4j</artifactId>
-    <version>2.0.0</version>
+    <version>2.2.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -40,14 +40,14 @@ Feature List:
 or for a Gradle project add:
 
 ```groovy
-compile 'io.github.vsvyastki:ginkgo4j:2.0.0'
+compile 'io.github.vsvyastki:ginkgo4j:2.2.0'
 ```
 
 or for a Gradle 7+ project add:
 
 ```groovy
 dependencies {
-    testImplementation 'io.github.vsvyastki:ginkgo4j:2.0.0'
+    testImplementation 'io.github.vsvyastki:ginkgo4j:2.2.0'
 }
 ```
 
